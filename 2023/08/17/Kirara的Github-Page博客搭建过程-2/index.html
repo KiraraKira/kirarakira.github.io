@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="zh-CN" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Kirara的Github Page博客搭建过程-2 | Kiraraの游戏城</title><link rel="icon" type="image/x-icon" href="/Kirara.github.io/favicon.ico"><script>var config = {"root":"/Kirara.github.io/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"code.copy","copyFinish":"code.copyFinish","expand":"code.expand"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/Kirara.github.io/lib/fontawesome/css/all.min.css"><link rel="stylesheet" href="/Kirara.github.io/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/Kirara.github.io/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/Kirara.github.io/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><style>:root {
+  --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+  --light-background: url('/Kirara.github.io/img/bk.jpg');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/Kirara.github.io/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/Kirara.github.io/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><div id="shadow-header"></div><article><div id="post-bg"><div id="post-title"><h1>Kirara的Github Page博客搭建过程-2</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-08-17T13:10:04.000Z" id="date"> 2023-08-17</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-08-17T13:42:12.348Z" id="updated"> 2023-08-17</time></div></span></div></div><hr><div id="post-content"><h1 id="电脑本地安装：Hexo"><a href="#电脑本地安装：Hexo" class="headerlink" title="电脑本地安装：Hexo"></a>电脑本地安装：Hexo</h1><p>Hexo 是一个基于 Node.js 的静态博客框架，它使用 Markdown 文件来创建和管理内容，并生成静态网页供发布，Hexo 需要依赖 npm 安装。</p>
+<p>Hexo 官方文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands">https://hexo.io/zh-cn/docs/commands</a></p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>在当前项目目录下安装 Hexo 及其相关依赖项：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="全局安装-Hexo-的命令行工具（CLI）"><a href="#全局安装-Hexo-的命令行工具（CLI）" class="headerlink" title="全局安装 Hexo 的命令行工具（CLI）"></a>全局安装 Hexo 的命令行工具（CLI）</h3><p>使用 npm 在全局范围安装 Hexo 的命令行工具（Hexo CLI），安装好后可以在任何目录下通过命令行使用 Hexo 相关命令，不仅限于特定的项目目录。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="在全局范围内强制重新安装-Hexo-CLI"><a href="#在全局范围内强制重新安装-Hexo-CLI" class="headerlink" title="在全局范围内强制重新安装 Hexo CLI"></a>在全局范围内强制重新安装 Hexo CLI</h3><p>如果之前下载过Hexo，电脑中已经存在旧版本的 Hexo CLI，默认情况下，为了防止意外覆盖或破坏现有的配置或数据， npm 会而是保留原来的旧版本，不会安装。</p>
+<p>但是如果想要强制安装新版本的Hexo，或单纯想要重新安装，可使用 <code>--force</code> 标志，强制 npm 忽略现有的 Hexo ，开始安装全新的Hexo。</p>
+<p>这个命令会删除旧版本的 Hexo CLI，并用最新版本进行替换。强制重新安装可以确保Hexo CLI 是最新版。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli --force</span><br></pre></td></tr></table></figure>
+
+
+
+<p class='item-img' data-src='/Kirara.github.io/./img/installhexo.png'><img src="/Kirara.github.io/./img/installhexo.png" alt="installhexo"></p>
+<h2 id="查看Hexo版本"><a href="#查看Hexo版本" class="headerlink" title="查看Hexo版本"></a>查看Hexo版本</h2><p>下面两个命令都可以显示 Hexo 的版本信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br><span class="line"></span><br><span class="line">hexo -version</span><br></pre></td></tr></table></figure>
+
+
+
+<p class='item-img' data-src='/Kirara.github.io/./img/hexoversion.png'><img src="/Kirara.github.io/./img/hexoversion.png" alt="installhexo"></p>
+<h1 id="正式创建Github-Page"><a href="#正式创建Github-Page" class="headerlink" title="正式创建Github Page"></a>正式创建Github Page</h1><p>现在，准备好了Github账号，配置好了Git，安装好了Node.js环境和Hexo，可以正式创建Github Page了！</p>
+<h2 id="创建Github仓库"><a href="#创建Github仓库" class="headerlink" title="创建Github仓库"></a>创建Github仓库</h2><p>点击右上角的加号，选择<code>“New repository”</code>。</p>
+<p>Repository（仓库）是用于存储和管理代码项目的地方。</p>
+<p>一个 Repository 可以包含项目的所有文件、文件夹、版本历史记录、分支、标签以及与项目相关的其他资源。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/github1.png'><img src="/Kirara.github.io/./img/github1.png" alt="installhexo"></p>
+<p>在<code>Create a new repository</code>页面，找到：<code>Repository name *</code>。这里的星号表示必填项。</p>
+<p>填入新建的仓库名字。</p>
+<p>注意：仓库的名字一定要填：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">博客名字.github.io</span><br></pre></td></tr></table></figure>
+
+<p>不可以省略后面的 <code>github.io</code> ，否则无法建立正确的Github Page。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/repositoryname.png'><img src="/Kirara.github.io/./img/repositoryname.png" alt="installhexo"></p>
+<p>创建好后，修改一下仓库的配置。</p>
+<p>点击 <code>Seetings</code> （设置），进入仓库的设置页。</p>
+<p><code>&quot;Pages&quot;</code>（页面）选项提供了配置和管理项目的静态网页的功能，</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/openseetings.png'><img src="/Kirara.github.io/./img/openseetings.png" alt="installhexo"></p>
+<p>如下图所示：默认的分支为：<code>main</code>。</p>
+<p>分支名需要记住，后面的网站配置中需要使用。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/defaultbranch.png'><img src="/Kirara.github.io/./img/defaultbranch.png" alt="installhexo"></p>
+<p>点击左侧的<code>Pages</code>。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/opengithubpages.png'><img src="/Kirara.github.io/./img/opengithubpages.png" alt="installhexo"></p>
+<p>找到：Buile and deployment（构建和部署）</p>
+<p>Source（源）：</p>
+<ul>
+<li><p>Github Actions（Github操作）最适合使用框架和自定义构建过程</p>
+<p>适合需要灵活性和自定义性的项目，可以根据特定的框架、工具和构建流程来执行自动化任务。</p>
+</li>
+<li><p>Deploy from a brance（从分支部署）经典页面体验</p>
+<p>只有经过验证的代码被部署到生产环境，提供稳定和可靠的页面体验。</p>
+</li>
+</ul>
+<p>两种构建和部署方法都可以支持使用Hexo ，但Hexo 更适合使用 Deploy from a branch 。</p>
+<p>例如，可以将 Hexo 生成的静态网页文件所在的分支（通常是 <code>gh-pages</code> 分支，在下图中我使用了默认的的 main 分支）作为部署源。</p>
+<p>启用 Deploy from a branch 并选择该分支后，每次推送代码到该分支时，GitHub Pages 会自动构建并部署分支上的静态网页。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/buildanddeployment.png'><img src="/Kirara.github.io/./img/buildanddeployment.png" alt="installhexo"></p>
+<p class='item-img' data-src='/Kirara.github.io/./img/deployfromabranch.png'><img src="/Kirara.github.io/./img/deployfromabranch.png" alt="installhexo"></p>
+<h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>在电脑容易找到的位置新建一个文件夹，尽量与自己的Github 仓库同名，例如：D:\Kirara\Kirara.github.io</p>
+<p>这个文件夹就作为存放代码的地方。</p>
+<p>进入文件夹：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 文件夹名</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> Kirara.github.io</span><br></pre></td></tr></table></figure>
+
+
+
+<p>初始化一个新的 Hexo 网站：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>Hexo 将创建一个新的文件夹，其中包含用于构建和管理网站的基本文件和目录结构。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/hexoinit.png'><img src="/Kirara.github.io/./img/hexoinit.png" alt="installhexo"></p>
+<p class='item-img' data-src='/Kirara.github.io/./img/allfile.png'><img src="/Kirara.github.io/./img/allfile.png" alt="installhexo"></p>
+<p><code>_config.yml</code>：Hexo 网站的主要配置文件，包含网站的各种设置选项，如标题、URL、主题等，可以在这个文件中进行自定义配置。</p>
+<p><code>package.json</code>：Node.js 的包管理文件，用于管理 Hexo 网站所需的依赖包和插件，可以使用 npm 或 yarn 命令来安装、更新和管理依赖项。</p>
+<p><code>scaffolds</code> 目录：包含用于生成新文章、页面和草稿的模板文件，在命令行中使用 Hexo 提供的相应命令，可以使用这些模板快速创建新的内容。</p>
+<p><code>source</code> 目录：用于存储 Hexo 网站的源文件，包括 Markdown 格式的文章和页面。您可以在这里编写和管理网站的内容。</p>
+<p><code>themes</code> 目录：用于存放主题文件的目录。Hexo 支持使用不同的主题来定制网站的外观和样式。在此目录中，您可以将下载或自定义的主题放置在相应的子目录中。</p>
+<h2 id="安装Hexo的依赖包"><a href="#安装Hexo的依赖包" class="headerlink" title="安装Hexo的依赖包"></a>安装Hexo的依赖包</h2><p>运行 <code>npm install</code> 命令，会根据项目中的 <code>package.json</code> 文件中的依赖项列表，将所有所需的软件包和模块下载并安装到当前项目的 <code>node_modules</code> 文件夹中。<br>这些依赖包通常是项目所需的第三方库、框架、工具或插件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行<code>npm install</code>命令后，会自动下载一些依赖文件到Kirara这个目录，下载到<code>node_modules</code>中。</p>
+<p><code>node_modules</code>文件夹内的依赖文件不要轻易删除</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/allfile.png'><img src="/Kirara.github.io/./img/allfile.png" alt="installhexo"></p>
+<h2 id="安装Hexo需要的插件"><a href="#安装Hexo需要的插件" class="headerlink" title="安装Hexo需要的插件"></a>安装Hexo需要的插件</h2><p>Hexo 默认已经包含了下列的渲染引擎插件，大多数情况下不需要手动安装。</p>
+<p>但如果在使用 Hexo 过程中遇到了相关的渲染问题或错误，可以尝试使用下面的安装插件命令重新安装。</p>
+<p>在本地文件夹中打开<code>git bush</code>，输入命令即可安装插件：</p>
+<h3 id="EJS-渲染引擎插件"><a href="#EJS-渲染引擎插件" class="headerlink" title="EJS 渲染引擎插件"></a>EJS 渲染引擎插件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-ejs --save</span><br></pre></td></tr></table></figure>
+
+<p>安装 Hexo 博客框架中的 EJS 渲染引擎插件，并将其作为项目的依赖保存。<br><code>hexo-renderer-ejs</code> 是 Hexo 的一个渲染引擎插件，它用于将 EJS（Embedded JavaScript）模板语言转换为 HTML 页面。EJS 允许在 HTML 页面中嵌入 JavaScript 代码，以实现动态内容的渲染和生成。</p>
+<h3 id="Stylus-渲染引擎插件"><a href="#Stylus-渲染引擎插件" class="headerlink" title="Stylus 渲染引擎插件"></a>Stylus 渲染引擎插件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+
+<p>命令的作用是安装 Hexo 博客框架中的 Stylus 渲染引擎插件，并将其作为项目的依赖保存。<code>hexo-renderer-stylus</code> 是 Hexo 的一个渲染引擎插件，用于处理 Stylus 样式表语言。</p>
+<p>Tips：Stylus 是一种基于缩进的样式表语言，类似于 Sass 和 Less，它提供了更简洁灵活的语法来编写 CSS。</p>
+<p>如果希望在 Hexo 项目中使用其他的样式预处理器（如 Sass 或 Less），可以安装对应的渲染引擎插件，并相应地修改 Hexo 配置文件中的样式相关配置。</p>
+<h3 id="Marked-渲染引擎插件"><a href="#Marked-渲染引擎插件" class="headerlink" title="Marked 渲染引擎插件"></a>Marked 渲染引擎插件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+
+<p>安装 Hexo 博客框架中的 Marked 渲染引擎插件，并将其作为项目的依赖保存。<code>hexo-renderer-marked</code> 是 Hexo 的一个渲染引擎插件，用于将 Markdown 文档转换为 HTML 页面。</p>
+<h3 id="三个插件同时安装："><a href="#三个插件同时安装：" class="headerlink" title="三个插件同时安装："></a>三个插件同时安装：</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server hexo-browsersync hexo-renderer-pug --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="安装服务器、浏览器同步和-Pug-渲染引擎插件"><a href="#安装服务器、浏览器同步和-Pug-渲染引擎插件" class="headerlink" title="安装服务器、浏览器同步和 Pug 渲染引擎插件"></a>安装服务器、浏览器同步和 Pug 渲染引擎插件</h2><h3 id="插件解释"><a href="#插件解释" class="headerlink" title="插件解释"></a>插件解释</h3><h4 id="服务器插件"><a href="#服务器插件" class="headerlink" title="服务器插件"></a>服务器插件</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+
+<p>提供了一个本地服务器，可以在开发环境中预览和调试生成的静态页面。安装 <code>hexo-server</code> 插件后，可以使用 <code>hexo server</code> 命令来启动本地服务器，并通过浏览器访问 Hexo 博客的预览页面。</p>
+<h4 id="浏览器同步插件"><a href="#浏览器同步插件" class="headerlink" title="浏览器同步插件"></a>浏览器同步插件</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-browsersync --save</span><br></pre></td></tr></table></figure>
+
+<p>浏览器同步插件，它基于 BrowserSync 技术，可以在多个浏览器和设备上同步刷新页面。安装 <code>hexo-browsersync</code> 插件后，可以在使用 <code>hexo server</code> 启动的本地服务器上实现浏览器同步，从而在实时编辑博客内容时，各个浏览器会自动更新并显示最新的页面。</p>
+<h4 id="渲染引擎插件"><a href="#渲染引擎插件" class="headerlink" title="渲染引擎插件"></a>渲染引擎插件</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug --save</span><br></pre></td></tr></table></figure>
+
+<p>渲染引擎插件，用于处理 Pug（以前称为 Jade）模板语言。Pug 是一种简洁而强大的模板语言，它提供了更简洁的语法来编写 HTML 页面。</p>
+<p>安装 <code>hexo-renderer-pug</code> 插件后，Hexo 将使用 Pug 渲染引擎来处理包含 Pug 语法的模板文件，并将其转换为最终的 HTML 页面。</p>
+<h2 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h2><p><code>hexo g</code> 和 <code>hexo generate</code> 用于生成静态页面的命令，完全等价的，可以互换使用。<br>运行 <code>hexo g</code> 或 <code>hexo generate</code> 命令时，Hexo 会根据博客内容和配置，将 Markdown 文件转换为 HTML 页面，并生成相应的静态页面，将页面生成在public文件夹下。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/publicallfiles.png'><img src="/Kirara.github.io/./img/publicallfiles.png" alt="installhexo"></p>
+<p>这些静态页面可以用于发布到服务器或托管平台上，以供访问和阅读。<br>这两个命令的作用相同，只是 <code>hexo g</code> 是 <code>hexo generate</code> 的简写形式，方便用户记忆和使用。<br>可以根据个人喜好选择使用哪个命令来生成静态页面，效果是一样的。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo generate</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p class='item-img' data-src='/Kirara.github.io/./img/hexog1.png'><img src="/Kirara.github.io/./img/hexog1.png" alt="installhexo"></p>
+<h2 id="本地运行预览效果"><a href="#本地运行预览效果" class="headerlink" title="本地运行预览效果"></a>本地运行预览效果</h2><p><code>hexo s</code> 和 <code>hexo server</code> 是 Hexo 博客框架中用于启动本地服务器的命令，同样完全等价的，可以互换使用，没有区别。</p>
+<p>运行 <code>hexo s</code> 或 <code>hexo server</code> 命令时，Hexo 会启动一个本地服务器，用于在您的计算机上预览和测试生成的静态页面。您可以通过访问指定的本地地址（默认为 <a href="http://localhost:4000）来查看您的博客。">http://localhost:4000）来查看您的博客。</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line"></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+
+
+<p class='item-img' data-src='/Kirara.github.io/./img/hexos.png'><img src="/Kirara.github.io/./img/hexos.png" alt="installhexo"></p>
+<p class='item-img' data-src='/Kirara.github.io/./img/hexonothemes.png'><img src="/Kirara.github.io/./img/hexonothemes.png" alt="installhexo"></p>
+<p>看到这样的默认页面就代表本地配置成功。</p>
+<h2 id="关闭本地运行"><a href="#关闭本地运行" class="headerlink" title="关闭本地运行"></a>关闭本地运行</h2><p>键盘同时按下：Ctrl 和C</p>
+<h1 id="通过Git部署配置"><a href="#通过Git部署配置" class="headerlink" title="通过Git部署配置"></a>通过Git部署配置</h1><h2 id="安装Git部署插件"><a href="#安装Git部署插件" class="headerlink" title="安装Git部署插件"></a>安装Git部署插件</h2><p>安装 Hexo 博客框架中的 Git 部署插件，并将其作为项目的依赖保存。<br><code>hexo-deployer-git</code> 是 Hexo 的一个部署插件，它通过 Git 版本控制系统来将生成的静态页面部署到远程服务器或托管平台上。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+
+
+<p>通过执行命令后，安装插件到 Hexo 项目中，并添加到项目的 <code>package.json</code> 文件中的依赖列表中。</p>
+<p>在执行 <code>hexo deploy</code> 或 <code>hexo d</code> 命令时，Hexo 将使用 Git 部署插件来将生成的页面提交到预先配置的远程 Git 仓库。</p>
+<p>需要注意的是：在安装 <code>hexo-deployer-git</code> 插件之前，需要先在 Hexo 配置文件中进行相应的配置，包括指定部署的 Git 仓库地址、分支信息、用户名密码等。</p>
+<p>也就是说，在安装 <code>hexo-deployer-git</code> 插件之前，提前在<code>_config.yml</code>文件中的<code>deploy :type:</code>中 填入<code>git</code>：</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/deploytypegit.png'><img src="/Kirara.github.io/./img/deploytypegit.png" alt="installhexo"></p>
+<h2 id="指定部署方式和相关配置"><a href="#指定部署方式和相关配置" class="headerlink" title="指定部署方式和相关配置"></a>指定部署方式和相关配置</h2><p>打开目录下的<code>_config.yml</code>文件。</p>
+<p>可以使用VS Code打开，或者记事本、Notepad++都可以。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/ioconfigymlfile.png'><img src="/Kirara.github.io/./img/ioconfigymlfile.png" alt="installhexo"></p>
+<p>找到文件最下方的 deploy，添加下列内容：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">部署类型</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:Github账号用户名/仓库名.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">分支名</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>type: 部署类型</code>：指定部署的类型为 Git，表示使用 Git 作为部署的方式。</li>
+<li><code>repo: git@github.com:Github账号用户名/仓库名.git</code>：指定要部署到的仓库的 Git URL。</li>
+<li><code>branch: 分支名</code>：指定要将静态网页部署到的 Git 分支。在这个例子中，静态网页将被部署到名为 “main” 的分支。</li>
+</ul>
+<p>例如：</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/ioconfigyml.png'><img src="/Kirara.github.io/./img/ioconfigyml.png" alt="installhexo"></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:KiraraKira/Kirara.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>仓库所在的 GitHub 用户是 “KiraraKira”，部署目标是名为 “Kirara.github.io” 的仓库。通过配置，GitHub Pages 会将生成的静态网页部署到仓库中。</p>
+<h1 id="远程部署Github-Page"><a href="#远程部署Github-Page" class="headerlink" title="远程部署Github Page"></a>远程部署Github Page</h1><p><code>hexo deploy</code> 和 <code>hexo d</code> 命令是 Hexo 博客框架中用于部署生成的静态页面的命令，它们是完全等价的，可以互换使用，没有区别。</p>
+<p>运行 <code>hexo deploy</code> 或 <code>hexo d</code> 命令时，Hexo 会根据您在配置文件中设置的部署信息，将生成的静态页面部署到相应的远程服务器或平台上，以便将博客内容发布到互联网上。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br><span class="line"></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+
+
+<p class='item-img' data-src='/Kirara.github.io/./img/hexod.png'><img src="/Kirara.github.io/./img/hexod.png" alt="installhexo"></p>
+<h2 id="查看远程部署效果"><a href="#查看远程部署效果" class="headerlink" title="查看远程部署效果"></a>查看远程部署效果</h2><p>在Github Pages页面找到 <code>Visit site</code>，点击就可以查看部署到远程的网页</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/visitsitegithubpage.png'><img src="/Kirara.github.io/./img/visitsitegithubpage.png" alt="installhexo"></p>
+<p>如果远程的链接也能正常打开，就代表配置成功。</p>
+<p class='item-img' data-src='/Kirara.github.io/./img/hexonothemes.png'><img src="/Kirara.github.io/./img/hexonothemes.png" alt="installhexo"></p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/Kirara.github.io/2023/08/17/Kirara%E7%9A%84Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B-3/">← Next Kirara的Github Page博客搭建过程-3</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/Kirara.github.io/2023/08/17/Kirara%E7%9A%84Github-Page%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B-1/">Kirara的Github Page博客搭建过程-1 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/Kirara.github.io/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Kirara</a></h1><div id="description"><p>Kirara的个人主页</p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B5%E8%84%91%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%EF%BC%9AHexo"><span class="toc-number">1.</span> <span class="toc-text">电脑本地安装：Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="toc-number">1.1.</span> <span class="toc-text">安装Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85-Hexo-%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%EF%BC%88CLI%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">全局安装 Hexo 的命令行工具（CLI）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%85%A8%E5%B1%80%E8%8C%83%E5%9B%B4%E5%86%85%E5%BC%BA%E5%88%B6%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85-Hexo-CLI"><span class="toc-number">1.1.2.</span> <span class="toc-text">在全局范围内强制重新安装 Hexo CLI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BHexo%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.</span> <span class="toc-text">查看Hexo版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E5%BC%8F%E5%88%9B%E5%BB%BAGithub-Page"><span class="toc-number">2.</span> <span class="toc-text">正式创建Github Page</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAGithub%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">创建Github仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Hexo"><span class="toc-number">2.2.</span> <span class="toc-text">初始化Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo%E7%9A%84%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-number">2.3.</span> <span class="toc-text">安装Hexo的依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo%E9%9C%80%E8%A6%81%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">安装Hexo需要的插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EJS-%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.1.</span> <span class="toc-text">EJS 渲染引擎插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stylus-%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.2.</span> <span class="toc-text">Stylus 渲染引擎插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Marked-%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.3.</span> <span class="toc-text">Marked 渲染引擎插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E6%8F%92%E4%BB%B6%E5%90%8C%E6%97%B6%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="toc-number">2.4.4.</span> <span class="toc-text">三个插件同时安装：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%AD%A5%E5%92%8C-Pug-%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6"><span class="toc-number">2.5.</span> <span class="toc-text">安装服务器、浏览器同步和 Pug 渲染引擎插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E8%A7%A3%E9%87%8A"><span class="toc-number">2.5.1.</span> <span class="toc-text">插件解释</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">2.5.1.1.</span> <span class="toc-text">服务器插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%AD%A5%E6%8F%92%E4%BB%B6"><span class="toc-number">2.5.1.2.</span> <span class="toc-text">浏览器同步插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6"><span class="toc-number">2.5.1.3.</span> <span class="toc-text">渲染引擎插件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2"><span class="toc-number">2.6.</span> <span class="toc-text">生成静态页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C"><span class="toc-number">2.7.</span> <span class="toc-text">本地运行预览效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C"><span class="toc-number">2.8.</span> <span class="toc-text">关闭本地运行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Git%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">通过Git部署配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Git%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">安装Git部署插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E5%92%8C%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">指定部署方式和相关配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2Github-Page"><span class="toc-number">4.</span> <span class="toc-text">远程部署Github Page</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2%E6%95%88%E6%9E%9C"><span class="toc-number">4.1.</span> <span class="toc-text">查看远程部署效果</span></a></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside><div id="shadow-aside"></div></main><canvas id="canvas-dust"></canvas><script src="/Kirara.github.io/js/search.js"></script><script src="/Kirara.github.io/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/Kirara.github.io/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
